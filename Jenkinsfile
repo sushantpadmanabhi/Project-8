@@ -16,7 +16,7 @@ pipeline {
         stage('Login to Azure') {
             steps {
                 script {
-                    sh """
+                    bat """
                     az login --service-principal -u $AZURE_SP_USR -p $AZURE_SP_PSW --tenant $TENANT_ID
                     """
                 }
@@ -25,13 +25,13 @@ pipeline {
 
         stage('Terraform Init') {
             steps {
-                sh 'terraform init'
+                bat 'terraform init'
             }
         }
 
         stage('Terraform Apply') {
             steps {
-                sh 'terraform apply -auto-approve'
+                bat 'terraform apply -auto-approve'
             }
         }
     }
