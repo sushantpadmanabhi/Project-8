@@ -28,5 +28,5 @@ resource "azurerm_role_definition" "custom_role" {
 resource "azurerm_role_assignment" "role_assignment" {
   scope                = azurerm_resource_group.rg.id
   role_definition_name = "Contributor"  # You can change this to "Reader" or any built-in role
-  principal_id         = "<YOUR_AZURE_USER_OR_SERVICE_PRINCIPAL_ID>"  # Replace with actual User or SP ID
+  principal_id         = "c70410dc-f1b5-4dab-94f2-0a8f3330bce9"  # Replace with actual User or SP ID
 }
