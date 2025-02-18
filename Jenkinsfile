@@ -4,6 +4,7 @@ pipeline {
     environment {
         AZURE_SP = credentials('AZURE_SP_CREDENTIALS')  // Fetches Azure Service Principal credentials from Jenkins
         TENANT_ID = 'f318d863-cbfc-45da-a55b-5d0417569430'  // Replace with your actual Azure Tenant ID
+        SUBSCRIPTION_ID = 'da4b743b-bf70-41b9-905f-e402e5dc9066'
     }
 
     stages {
