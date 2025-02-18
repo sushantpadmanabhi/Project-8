@@ -2,11 +2,17 @@ pipeline {
     agent any
 
     environment {
-        AZURE_SP = credentials('AZURE_SP_CREDENTIALS')  // Fetches stored username & password
-        TENANT_ID = 'f318d863-cbfc-45da-a55b-5d0417569430'  // Replace with actual Tenant ID
+        AZURE_SP = credentials('AZURE_SP_CREDENTIALS')  // Fetches Azure Service Principal credentials from Jenkins
+        TENANT_ID = 'f318d863-cbfc-45da-a55b-5d0417569430'  // Replace with your actual Azure Tenant ID
     }
 
     stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/sushantpadmanabhi/Project-8.git'
+            }
+        }
+
         stage('Login to Azure') {
             steps {
                 script {
